@@ -3,7 +3,7 @@ import { nanoid } from "nanoid";
 import ContactForm from "./ContactForm/ContactForm";
 import { ContactList } from "./ContactList/ContactList";
 import { Filter } from "./Filter/Filter";
-/* import PropTypes from 'prop-types' */
+import { PhonebookMainTitleStyled, PhonebookTitleStyled } from "./App.styled";
 
 export default class App extends Component {
   state = {
@@ -54,12 +54,14 @@ export default class App extends Component {
     return (
       <div>
         <div>
-          <h1>Phonebook</h1>
+          <PhonebookMainTitleStyled>Phonebook</PhonebookMainTitleStyled>
           <ContactForm onSubmit={this.onAddContactSubmit} />
         </div>
-        <h2>Contacts</h2>
+  
+        <PhonebookTitleStyled>Contacts</PhonebookTitleStyled>
         <Filter onChange={this.onChangeFilter} />
         <ContactList contacts={contacts} onDeleteContact={this.deleteContact} />
+      
       </div>
     );
   }

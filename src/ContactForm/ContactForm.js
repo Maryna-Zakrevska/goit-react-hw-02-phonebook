@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-/* import { nanoid } from "nanoid"; */
+import {
+  ContactFormStyled,
+  ContactFormLabelStyled,
+  ContactFormInputStyled,
+  ContactFormButtonStyled,
+} from "./ContactForm.styled";
 
 export default class ContactForm extends Component {
   static propTypes = {
@@ -33,29 +38,29 @@ export default class ContactForm extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.addContact}>
-          <label>
+        <ContactFormStyled onSubmit={this.addContact}>
+          <ContactFormLabelStyled>
             Name
-            <input
+            <ContactFormInputStyled
               type="text"
               name="name"
               pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
               title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
               required
             />
-          </label>
-          <label>
+          </ContactFormLabelStyled>
+          <ContactFormLabelStyled>
             Number
-            <input
+            <ContactFormInputStyled
               type="tel"
               name="number"
               pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
               title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
               required
             />
-          </label>
-          <button type="submit">Add contact</button>
-        </form>
+          </ContactFormLabelStyled>
+          <ContactFormButtonStyled type="submit">Add contact</ContactFormButtonStyled>
+        </ContactFormStyled>
       </div>
     );
   }
